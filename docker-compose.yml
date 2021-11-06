@@ -1,0 +1,17 @@
+version: '2.2'
+
+services:
+
+  crypto-real-time-data:
+    container_name: crypto-real-time-data
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    stdin_open: true
+    ports:
+      - 9000:9000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
